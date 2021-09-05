@@ -122,3 +122,64 @@ def passlock():
 	while True:
 		print("Use these short codes:\n CC - Create a new credentials  \n DC - Display Credentials  \n FC - Find a Credential \n GP -Generate a random Password \n D - Delete Credentials \n EX - Exit the application \n")
 		short_code = input().lower().strip()
+		if short_code == "cc":
+			print("Create New Credentials")
+			print("."*20)
+			print("Account name ...")
+			account = input().lower()
+			print("Your Account username")
+			username = input()
+			while True:
+				print(" TP - Type Password if you already have an account: \n GP - Generate random Password")
+				if password_Choice == 'tp':
+					password = input("Enter Your Password \n")
+					break
+				elif Password_Choice == 'gp':
+					password = generate_password()
+					break
+				else:
+					print("Invalid Password.Please try again")
+
+			save_credentials(create_new_credentials(account, userName, password))
+			print('\n')
+			print(f"Account Credentials for: {account} - userName: {userName} - password: {password} successfully created")
+			print('\n')
+		elif short_code == "dc":
+			if display_accounts_details():
+				print("Here's your list of accounts:")
+
+				print('*' * 30)
+				print('_' * 30)
+				for account in display_accounts_details():
+					print(f" Account:{account.account} \n UserName:{username} \n Password:{password}")
+					print('_'* 30)
+				print('*' * 30)
+			else:
+				print("You don't have any credentials saved yet ...")
+		elif short_code == "fc":
+			print("Enter the account name of the Credentials you want to delete")
+			search_name = input().lower()
+			if find_credentials(search_name):
+				search_credentials = find_credentials(search_name)
+				print(f"Account Name : {search_credentials.account}")
+				print('-' * 50)
+				print(f"User Name: {search_credentials.username} Password: {search_credentials.password}")
+				print('-' * 50)
+			else:
+				print("That Credential does not exist")
+				print('\n')
+		elif short_code == "d":
+			print("Enter the Account Name you want to delete")
+			search_name = input().lower()
+			if find_credentials(search_name):
+				search_credentials = find_credentials(search_name)
+				print("_"*50)
+				search_credentials.delete_credentials()
+				print('\n')
+				print(f"Your stored credentials for: {search_credentials.account} successfully deleted!!!")
+				print('\n')
+			else:
+				print("That Credential you want to delete does not exist in your store yet")
+
+  	elif short_code == 'gp':
+			password = generate_password()
