@@ -53,3 +53,72 @@ def display_accounts_details():
   This function returns all the saved credentials
 	"""
 	return Credentials.display_credentials()
+
+def delete_credentials(credentials):
+	"""
+	A function  that deletes a Credential from credentials list
+	"""
+	credentials.delete_credentials()
+	
+def find_credentials(account):
+	"""
+	This function finds the credentials by an account name retursns the credential.
+	"""
+	return Credentials.find_credentials(account)
+
+def check_credentials(account):
+	"""
+	To check if a Credentials exist with that account name and return a boolean.
+	"""
+	return Credentials.if_credentials_exist(account)
+
+def generate_password():
+	"""
+	This function generates a random password for the user.
+	"""
+	auto_password = Credentials.generatePassword()
+	return auto_password
+
+def copy_password(account):
+	"""
+	Another function that copies the password using the pyperclip framework by importing the framework .
+	"""
+	return Credentials.copy_password(account)
+
+
+def passlock():
+	print("Hello and Welcome to your Account's Password Lock...\n Please enter one of the following to proceed.\n CA --- Create New Account  \n LI  ---  Already Have An Account  \n")
+	short_code = input("").lower().strip()
+	if short_code == "ca":
+		print("Sign Up")
+		print('*' * 50)
+		username = input("User_name: ")
+		while True:
+			print(" TP - To type personal password:\n GP - To generate random Password")
+			if password_choice == 'tp':
+				password = input("Enter Password\n")
+				break
+			elif password_Choice == 'gp':
+				password = generate_password()
+				break
+			else:
+				print("Invalid password please try again")
+		
+		save_user(create_new_user(username, password))
+		print("*"*85)
+		print(f"Hello {username}, Your account has successfully! Your password is: {password}")
+		print("*"*85)
+	elif short_code == "li":
+		print("*"*50)
+		print("Enter your User Name your Password to log in:")
+		print('*' * 50)
+		username = input("User name: ")
+		password = input("password: ")
+		login = login_user(username, password)
+		if login_user == "cc":
+			print(f"Hello {username}. Welcome To Password Locker Manager")
+			print('\n')
+
+	while True:
+		print("Use these short codes:\n CC - Create a new credentials  \n DC - Display Credentials  \n FC - Find a Credential \n GP -Generate a random Password \n D - Delete Credentials \n EX - Exit the application \n")
+		short_code = input().lower().strip()
