@@ -181,5 +181,18 @@ def passlock():
 			else:
 				print("That Credential you want to delete does not exist in your store yet")
 
-  	elif short_code == 'gp':
+		elif short_code == 'gp':
 			password = generate_password()
+			print(f" {password} Has been generated successfully. Please proceed into your account")
+		
+		elif short_code == 'ex':
+			print(f"Thank You For Choosing D-Password Locker. See you next time")
+			break
+		else:
+			print("Wrong entry! Check your entry again and let it match those in the Menu")
+
+	else:
+		print("Please enter a valid input to continue")
+
+if __name__ == '__main__':
+	   password()
