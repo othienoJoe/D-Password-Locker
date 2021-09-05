@@ -61,4 +61,18 @@ class Credentials():
 		This is a method that stores the new credentials to the credentials
 		"""
 		Credentials.credentials_list.append(self)
-		
+
+	def delete_credentials(self):
+		"""
+		This method deletes an account's credentials from the credentials_lists
+		"""
+		Credentials.credentials_list.remove(self)
+
+	@classmethod
+	def find_credentials(cls, account):
+		"""
+    Another class method that takes in an account name and returnsthe credentials that match the needed account name
+		"""
+		for credentials in cls.credentials_list:
+			if credentials.account == account:
+				return credentials

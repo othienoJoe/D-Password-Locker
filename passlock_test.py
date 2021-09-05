@@ -56,4 +56,23 @@ class TestCredentials(unittest.TestCase):
 		"""
 		Credentials.credentials_list = []
 
-	
+	def test_save_many_accounts(self):
+		'''
+		A test to check if we can save a multiple credentials objects to the credentials.
+		'''
+		self.new_credentials.save_details()
+		test_credentials = Credentials("Facebook", "NicJoeOtienoz", "dix-9zon")
+		test_credentials.save_details()
+		self.assertEqual(len(Credentials.credentials_list),2)
+
+	def test_delete_credentials(self):
+		"""
+		A method to test if an account credentials can be removed fron the list
+		"""
+		self.new_credentials.save_details()
+		test_credentials = Credentials("Facebook", "NicJoeOtienoz", "dix-9zon")
+		test_credentials.save_details()
+
+		self.new_credentials.delete_credentials()
+		self.assertEqual(len(Credentials.credentials_list),1)
+		
