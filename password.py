@@ -76,3 +76,12 @@ class Credentials():
 		for credentials in cls.credentials_list:
 			if credentials.account == account:
 				return credentials
+
+	@classmethod
+	def copy_password(cls, account):
+		"""
+		This class method copies the object in the list
+		"""
+		found_credentials = Credentials.find_credentials(account)
+		pyperclip.copy(found_credentials.password)
+		

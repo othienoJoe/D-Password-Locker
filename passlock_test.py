@@ -67,7 +67,7 @@ class TestCredentials(unittest.TestCase):
 
 	def test_delete_credentials(self):
 		"""
-		A method to test if an account credentials can be removed fron the list
+		A method to test if an account credentials can be removed from the list
 		"""
 		self.new_credentials.save_details()
 		test_credentials = Credentials("Facebook", "NicJoeOtienoz", "dix-9zon")
@@ -75,4 +75,15 @@ class TestCredentials(unittest.TestCase):
 
 		self.new_credentials.delete_credentials()
 		self.assertEqual(len(Credentials.credentials_list),1)
-		
+
+	def test_find_credentials(self):
+		"""
+		Lets check if we can find a credential's entry by account name and display the details of the credential.
+		"""
+		self.new_credentials.save_details()
+		test_credentials = Credentials("Facebook", "NicJoeOtienoz", "dix-9zon")
+		test_credentials.save_details()
+
+		the_credentials = Credentials.find_credentials("Facebook")
+
+		self.assertEqual(the_credentials.account, test_credentials.account)
