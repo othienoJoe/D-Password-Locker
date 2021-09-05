@@ -1,5 +1,6 @@
 import unittest
 from password import User
+from password import Credentials
 
 class TestClass(unittest.TestCase):
 	"""
@@ -27,6 +28,19 @@ class TestClass(unittest.TestCase):
 
 class TestCredentials(unittest.TestCase):
 	"""
-	Another test class that defines test cases for the credetials class.
+	Another test class that defines test cases for the credentials class.
 	"""
+	def setUp(self):
+		"""A method that runs before each individual credentials test method.
+		"""
+		self.new_credentials = Credentials('Github','othienoJoe','othieno094!')
+
+	def test_init(self):
+		"""
+		This is a test case for checking if the credentials instance has been initialized correctly.
+		"""
+		self.assertEqual(self.new_credentials.account, 'Github')
+		self.assertEqual(self.new_credentials.userName, 'othienoJoe')
+		self.assertEqual(self.new_credentials.password, 'othieno094!')
+
 	
