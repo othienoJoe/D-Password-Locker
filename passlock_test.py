@@ -11,4 +11,11 @@ class TestClass(unittest.TestCase):
 		"""
 		self.new_user = User('OthienoJoe', 'othieno094!')
 
+	def test_init(self):
+		"""
+		It's a test case that checks if the object has been initialized correctly.
+		"""
+		self.assertEqual(self.new_user.username, 'othienoJoe')
+		self.assertEqual(self.new_user.password, 'othieno094!')
+
 		
