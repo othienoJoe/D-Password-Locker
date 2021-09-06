@@ -12,9 +12,9 @@ This application manages and safely stores your accounts' password and also gene
 
 |Behavior      |               Input                   |                 Output                |
 |--------------|---------------------------------------|---------------------------------------|
-|Open Application <br>on the Terminal | Run the command `$ ./passlock_test.py` | Hello and welcome!
-1. Create an account
-2. Exit app
+|Open Application <br>on the Terminal | Run the command `$ ./passlock_test.py` | Hello and welcome!<br>
+1. Create an account|
+2. Exit app  |
 |--------------|---------------------------------------|---------------------------------------|
 |Select 1      |   ENter your name                     |
 |--------------|---------------------------------------|---------------------------------------|
