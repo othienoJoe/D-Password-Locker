@@ -140,9 +140,9 @@ def passlock():
 				else:
 					print("Invalid Password.Please try again")
 
-			save_credentials(create_new_credentials(account, userName, password))
+			save_credentials(create_new_credentials(account, username, password))
 			print('\n')
-			print(f"Account Credentials for: {account} - userName: {userName} - password: {password} successfully created")
+			print(f"Account Credentials for: {account} - userName: {username} - password: {password} successfully created")
 			print('\n')
 		elif short_code == "dc":
 			if display_accounts_details():
